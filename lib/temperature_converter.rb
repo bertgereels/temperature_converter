@@ -1,6 +1,19 @@
+require 'net/http'
+require 'uri'
+
 class TemperatureConverter
 
+  # def converter(value) #algemene converter i.p.v. 3x dezelfde code WIP!
+  #   celcius = value
+  #   fahrenheit = value * 1.8 + 32
+  #   kelvin = value + 273.15
+  #
+  #   return celcius, fahrenheit, kelvin
+  # end
+
   def commandline_temperature(temperature)
+    # converter(temperature)
+
     celcius = temperature
     fahrenheit = temperature * 1.8 + 32
     kelvin = temperature + 273.15
@@ -10,9 +23,9 @@ class TemperatureConverter
     to_html(celcius, fahrenheit, kelvin)
   end
 
-  def file_temperature
+  def file_temperature(path)
 
-    File.open("C:/Users/bertg_000/Documents/Systeemprogrammeren/Temperature_converter/data.txt", "r") do |f|
+    File.open(path, "r") do |f|
       f.each_line do |line|
           line = line.to_f
           @celcius = line
@@ -31,8 +44,12 @@ class TemperatureConverter
       Net::HTTP.get(URI.parse(url))
     end
 
-    page_content = open(url)
-    puts page_content
+    url_value = open(url)
+    url_value = url_value.to_f
+
+    celcius = url_value
+    fahrenheit = url_value * 1.8 + 32
+    kelvin = url_value + 273.15
 
     to_text(celcius, fahrenheit, kelvin)
     to_json(celcius, fahrenheit, kelvin)
