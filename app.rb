@@ -3,9 +3,9 @@ require 'net/http'
 require 'uri'
 
 input = ARGV.first.to_f
+path = 'C:/Users/bertg/Documents/Systeemprogrammeren/Temperature_converter/data.txt'
+url = 'http://labict.be/software-engineering/temperature/api/temperature/fake'
 
-temperature_converter = TemperatureConverter.new
-
-puts temperature_converter.commandline_temperature input
-puts temperature_converter.file_temperature 'C:/Users/bertg_000/Documents/Systeemprogrammeren/Temperature_converter/data.txt'
-puts temperature_converter.url_temperature 'http://labict.be/software-engineering/temperature/api/temperature/fake'
+TemperatureConverter.commandline_temperature input
+TemperatureConverter.file_temperature path
+TemperatureConverter.url_temperature url
