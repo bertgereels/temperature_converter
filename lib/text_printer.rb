@@ -5,6 +5,7 @@ require './lib/json_printer.rb'
 require './lib/commandline_reader.rb'
 require './lib/file_reader.rb'
 require './lib/url_reader.rb'
+require './lib/mqtt_reader.rb'
 
 class TextPrinter
 

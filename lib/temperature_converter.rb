@@ -3,6 +3,7 @@ require './lib/file_reader.rb'
 require './lib/url_reader.rb'
 require './lib/Converter.rb'
 require './lib/text_printer.rb'
+require './lib/mqtt_reader.rb'
 require './lib/html_printer.rb'
 require './lib/json_printer.rb'
 
@@ -23,6 +24,12 @@ class TemperatureConverter
   def self.urltemp(url)
     temperature = UrlReader.url_open(url).to_f
     puts "Temperatuur uit url:"
+    bundelMethode(temperature)
+  end
+
+  def self.mqtttemp(host, port, username, password)
+    temperature = MqttReader.mqtt_open(host, port, username, password)
+    puts "Temperatuur uit MQTT:"
     bundelMethode(temperature)
   end
 
