@@ -1,17 +1,53 @@
 require './lib/temperature_converter.rb'
+require 'optparse'
 
-input = ARGV.first.to_f
-path = 'C:/Users/bertg/Documents/Systeemprogrammeren/Temperature_converter/data.txt'
-url = 'http://labict.be/software-engineering/temperature/api/temperature/fake'
+# input = ARGV.first.to_f
+# path = 'data.txt'
+# url = 'http://labict.be/software-engineering/temperature/api/temperature/fake'
 host = 'staging.thethingsnetwork.org'
 port = 1883
 username = '70B3D57ED00012B2'
 password = 'c8iuTSccnypK1eoFzEb/OoqB2FVAiFg/aEaYesnNf4w='
 
-TemperatureConverter.commandlinetemp input
+# TemperatureConverter.commandlinetemp input
+#
+# TemperatureConverter.filetemp path
+#
+# TemperatureConverter.urltemp url
+#
+# TemperatureConverter.mqtttemp host,port,username,password
+#
+# puts "Options: "
+# puts "-t : Commandline temperature"
+# puts "-f : File temperature"
+# puts "-u : URL temperature"
+# puts "-m : MQTT temperature"
 
-TemperatureConverter.filetemp path
+OptionParser.new do |opts|
+  opts.banner = "Usage: ruby app.rb [options]"
 
-TemperatureConverter.urltemp url
+  opts.on("-t [FLOAT]",Float, "Commandline temperature") do |t|
+    opts.on("-q [MYSTRING]",String, "Choose your printer") do |q|
+      TemperatureConverter.commandlinetemp t,q
+    end
+  end
 
-TemperatureConverter.mqtttemp host,port,username,password
+  opts.on("-f [MYSTRING]",String, "File temperature") do |f|
+    opts.on("-q [MYSTRING]",String, "Choose your printer") do |q|
+      TemperatureConverter.filetemp f,q
+    end
+  end
+
+  opts.on("-u [MYSTRING]",String, "URL temperature") do |u|
+    opts.on("-q [MYSTRING]",String, "Choose your printer") do |q|
+      TemperatureConverter.urltemp u,q
+    end
+  end
+
+  opts.on("-m", "MQTT temperature") do
+    opts.on("-q [MYSTRING]",String, "Choose your printer") do |q|
+      TemperatureConverter.mqtttemp host,port,username,password,q
+    end
+  end
+
+end.parse!
