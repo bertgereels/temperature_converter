@@ -1,4 +1,6 @@
-require 'temperature_converter.rb'
+#!/usr/bin/env ruby
+
+require 'temperature_converter_Bert_Gereels'
 require 'optparse'
 
 # path = 'data.txt'

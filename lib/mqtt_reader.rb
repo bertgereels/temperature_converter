@@ -4,6 +4,7 @@ require 'json'
 
 class MqttReader
 
+  # Reads temperature in degrees celcius from MQTT
   def self.mqtt_open(host, port, username, password)
     client = MQTT::Client.new
     client.host = host

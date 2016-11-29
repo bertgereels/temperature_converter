@@ -1,14 +1,7 @@
-require './lib/text_printer.rb'
-require './lib/html_printer.rb'
-require './lib/json_printer.rb'
-
-require './lib/commandline_reader.rb'
-require './lib/file_reader.rb'
-require './lib/url_reader.rb'
-require './lib/mqtt_reader.rb'
 
 class TextPrinter
 
+ # Prints the three formats of temperature as simple text in a console
   def self.printer(celcius, fahrenheit, kelvin)
     puts "#{celcius} °C"
     puts "#{fahrenheit} °F"
