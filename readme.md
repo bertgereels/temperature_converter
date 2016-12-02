@@ -21,34 +21,34 @@ gem install temperature_converter_Bert_Gereels
 ## Usage example
 This program uses optionparses to select input- and output formats.
 ### Input formats:
-1. Convert temperature inputted from commandline (-t).
+ Convert temperature inputted from commandline (-t).
 ```
  temp_conv -t 69 -q text
 ```
-2. Convert temperature read form a textfile (-f).
+ Convert temperature read form a textfile (-f).
 ```
  temp_conv -f 'file_name.txt' -q json
 ```
-3. Convert temperature read from a url (-u).
+ Convert temperature read from a url (-u).
 ```
  temp_conv -u 'url_name' -q json
 ```
-4. Convert temperature read from a MQTT server (-m).
+ Convert temperature read from a MQTT server (-m).
 ```
  temp_conv -m -q html
 ```
 NOTE: MQTT settings are hardcoded!
 
 ### Printing formats:
-1. Printing regular text (-text).
+ Printing regular text (-text).
 ```
  temp_conv -f 'file_name.txt' -q text
 ```
-2. Printing in JSON format (-json).
+ Printing in JSON format (-json).
 ```
  temp_conv -u 'url_name.txt' -q json
 ```
-3. Printing in HTML format (-html).
+ Printing in HTML format (-html).
 ```
  temp_conv -t 1337 -q html
 ```
