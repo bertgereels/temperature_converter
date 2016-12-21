@@ -11,11 +11,10 @@ class MqttReader
     client.port = port
     client.username = username
     client.password = password
+
     client.connect()
 
-    client.get('70B3D57ED00012B2/devices/000000007DD44BFC/up') do |topic,message|
-       tuid = JSON.parse(message)['fields']['temperature']
-       return tuid.to_f
-    end
+    topic,message = client.get('70B3D57ED00012B2/devices/00000000AE6C63E4/up')
+    tuid = JSON.parse(message)['fields']['temperature'].to_f
   end
 end

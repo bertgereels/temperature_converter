@@ -13,28 +13,38 @@ password = 'c8iuTSccnypK1eoFzEb/OoqB2FVAiFg/aEaYesnNf4w='
 OptionParser.new do |opts|
   opts.banner = "Usage: ruby app.rb [options]"
 
-  opts.on("-t [FLOAT]",Float, "Commandline temperature") do |t|
-    opts.on("-q [MYSTRING]",String, "Choose your printer") do |q|
-      TemperatureConverter.commandlinetemp t,q
+  opts.on("-c", "--command [VALUE]",Float, "Commandline temperature") do |c|
+    opts.on("-o", "--output [PRINTER_TYPE]",String, "Choose your printer") do |o|
+      TemperatureConverter.commandlinetemp c,o
     end
   end
 
-  opts.on("-f [MYSTRING]",String, "File temperature") do |f|
-    opts.on("-q [MYSTRING]",String, "Choose your printer") do |q|
-      TemperatureConverter.filetemp f,q
+  opts.on("-f", "--file [FILE_PATH]",String, "File temperature") do |f|
+    opts.on("-o", "--output [PRINTER_TYPE]",String, "Choose your printer") do |o|
+      TemperatureConverter.filetemp f,o
     end
   end
 
-  opts.on("-u [MYSTRING]",String, "URL temperature") do |u|
-    opts.on("-q [MYSTRING]",String, "Choose your printer") do |q|
-      TemperatureConverter.urltemp u,q
+  opts.on("-u", "--url [URL]",String, "URL temperature") do |u|
+    opts.on("-o", "--output [PRINTER_TYPE]",String, "Choose your printer") do |o|
+      TemperatureConverter.urltemp u,o
     end
   end
 
-  opts.on("-m", "MQTT temperature") do
-    opts.on("-q [MYSTRING]",String, "Choose your printer") do |q|
-      TemperatureConverter.mqtttemp host,port,username,password,q
+  opts.on("-m", "--mqtt", "MQTT temperature") do
+    opts.on("-o", "--output [PRINTER_TYPE]",String, "Choose your printer") do |o|
+      TemperatureConverter.mqtttemp host,port,username,password,o
     end
+  end
+
+  opts.on("-h", "--help", "Prints this help") do
+    puts opts
+    puts "  1) Select the way of input."
+    puts "  2) Select the way of output."
+    puts "      ->-o text"
+    puts "      ->-o json"
+    puts "      ->-o html"
+    puts "  3) Sit back and smile."
   end
 
 end.parse!

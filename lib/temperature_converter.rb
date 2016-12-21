@@ -33,7 +33,7 @@ class TemperatureConverter
     keuzePrinter(printer_type, temperature)
   end
 
-  # Choosing wich printing format
+  # Converting and outputting in correct way
   def self.keuzePrinter(printer_type, temperature)
     celc = Converter.to_celcius(temperature)
     fahr = Converter.to_fahrenheit(temperature)
@@ -46,7 +46,7 @@ class TemperatureConverter
       when "html"
         HtmlPrinter.printer(celc, fahr, kelv)
       else
-        "What the hell is #{printer_type}"
+        puts "What the hell is #{printer_type}"
       end
-    end
+  end
 end

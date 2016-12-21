@@ -17,49 +17,59 @@ Windows, Linux & OSX:
 ```
 gem install temperature_converter_Bert_Gereels
 ```
+3. Execute program using temp_conv --help
 
 ## Usage example
-This program uses optionparses to select input- and output formats.
+This program uses optionparsers to select in- and output formats.
 ### Input formats:
- Convert temperature inputted from commandline (-t).
+ Convert temperature inputted from commandline (-c or --command).
 ```
- temp_conv -t 69 -q text
+ temp_conv -c 69 -o text
+ temp_conv --command 69 --output text
 ```
- Convert temperature read form a textfile (-f).
+ Convert temperature read form a textfile (-f or --file).
 ```
- temp_conv -f 'file_name.txt' -q json
+ temp_conv -f 'file_name.txt' -o json
+ temp_conv --file 'file_name.txt' --output json
 ```
- Convert temperature read from a url (-u).
+ Convert temperature read from a url (-u or --url).
 ```
- temp_conv -u 'url_name' -q json
+ temp_conv -u 'url_name' -o text
+ temp_conv --url 'url_name' --output text
 ```
- Convert temperature read from a MQTT server (-m).
+ Convert temperature read from a MQTT server (-m or --mqtt).
 ```
- temp_conv -m -q html
+ temp_conv -m -o html
+ temp_conv --mqtt --output html
 ```
-NOTE: MQTT settings are hardcoded!
+**NOTE: MQTT settings are hardcoded!**
 
-### Printing formats:
+### Output formats:
  Printing regular text (-text).
 ```
- temp_conv -f 'file_name.txt' -q text
+ temp_conv --file 'file_name.txt' -o text
 ```
  Printing in JSON format (-json).
 ```
- temp_conv -u 'url_name.txt' -q json
+ temp_conv -u 'url_name.txt' --output json
 ```
  Printing in HTML format (-html).
 ```
- temp_conv -t 1337 -q html
+ temp_conv -c 1337 -o html
 ```
+**NOTE: the in- and output arguments can be entered as a single character or fully,
+        they can be used interchangeably**
+        
 ## Release History
 
-
-* 0.1.0
+* 1.0.1
+   * Added extra functionality to optionparsers
+   * Updates readme file
+* 1.0.0
    * The first proper release
    * Made a gem.
 * 0.0.6
-    * Added an optionparses for input and output.
+    * Added optionparses for input and output.
 * 0.0.5
     * Added MQTT functionality.
 * 0.0.4
