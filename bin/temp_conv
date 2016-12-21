@@ -41,9 +41,9 @@ OptionParser.new do |opts|
     puts opts
     puts "  1) Select the way of input."
     puts "  2) Select the way of output."
-    puts "      ->-o text"
-    puts "      ->-o json"
-    puts "      ->-o html"
+    puts "     -> -o or --output text"
+    puts "     -> -o or --output json"
+    puts "     -> -o or --output html"
     puts "  3) Sit back and smile."
   end
 
