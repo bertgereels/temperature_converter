@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'temperature_converter_Bert_Gereels'
-  s.version     = '1.0.3'
+  s.version     = '1.0.4'
   s.date        = '2016-12-20'
   s.summary     = "Easy commands to convert temperatures"
   s.description = "Commanline application to convert temperature from different sources"

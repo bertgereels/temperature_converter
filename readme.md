@@ -45,26 +45,33 @@ This program uses optionparsers to select in- and output formats.
 **NOTE: MQTT settings are hardcoded!**
 
 ### Output formats:
- Printing regular text (-text).
+ Printing regular text (-o text).
 ```
  temp_conv --file 'file_name.txt' -o text
 ```
- Printing in JSON format (-json).
+ Printing in JSON format (-o json).
 ```
  temp_conv -u 'url_name.txt' --output json
 ```
- Printing in HTML format (-html).
+ Printing in HTML format (-o html).
 ```
  temp_conv -c 1337 -o html
 ```
 **NOTE: the in- and output arguments can be entered as a single character or fully,
         they can be used interchangeably**
-        
+
 ## Release History
 
+* 1.0.4
+   * Minor readme file changes
+* 1.0.3
+   * Final changes to optionparsers
+   * Update to readme file
+* 1.0.2
+   * Changes to optionparsers
 * 1.0.1
    * Added extra functionality to optionparsers
-   * Updates readme file
+   * Update to readme
 * 1.0.0
    * The first proper release
    * Made a gem.
