@@ -51,7 +51,7 @@ This program uses optionparsers to select in- and output formats.
 ```
  Printing in JSON format (-o or --output json).
 ```
- temp_conv -u 'url_name.txt' --output json
+ temp_conv -u 'url_name' --output json
 ```
  Printing in HTML format (-o or --output html).
 ```
